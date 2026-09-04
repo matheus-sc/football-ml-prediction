@@ -24,12 +24,6 @@ def predict_proba_from_transformed(model: Pipeline, transformed_values: np.ndarr
 
 
 def get_categorical_feature_indexes(feature_names: list[str]) -> list[int]:
-    """Índices das colunas que saíram do OneHotEncoder.
-
-    O LimeTabularExplainer trata toda coluna como contínua por padrão, o que produz
-    condições sem sentido para variáveis binárias (`cat__estadio_Arena Condá <= 0.00`).
-    Informar quais são categóricas faz o LIME reportá-las como presença/ausência.
-    """
     return [i for i, name in enumerate(feature_names) if name.startswith("cat__")]
 
 

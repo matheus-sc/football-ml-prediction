@@ -1,19 +1,3 @@
-"""Linhas de base para dar significado às métricas dos modelos.
-
-Sem uma referência explícita, uma acurácia isolada não diz nada: no cenário binário
-`fora` vs `nao_fora` desta base, prever sempre `nao_fora` já entrega 75,6%. As três
-referências implementadas aqui são:
-
-1. `majority`   — sempre a classe mais frequente do treino. É o piso da acurácia.
-2. `odds`       — argmax da probabilidade implícita das casas de apostas.
-3. `odds_prior` — a mesma probabilidade dividida pelo prior das classes, que é a
-                  regra de decisão de custo balanceado. É o piso da acurácia
-                  balanceada e do macro-F1.
-
-A comparação com (2) e (3) responde à pergunta que nenhum dos trabalhos relacionados
-faz: o modelo aprende algo além do que o mercado de apostas já precificou?
-"""
-
 import numpy as np
 import pandas as pd
 from sklearn.metrics import (

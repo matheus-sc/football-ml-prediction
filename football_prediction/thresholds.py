@@ -1,15 +1,3 @@
-"""Varredura de limiar de decisão para uma classe de interesse.
-
-A versão anterior deste módulo comparava `y_test` (com rótulos `casa`, `empate` e
-`fora`) contra predições de `fora`/`nao_fora`. Nenhum rótulo negativo casava, e o
-resultado eram acurácias em torno de 0,15 com verdadeiros e falsos negativos zerados.
-
-A regra usada aqui vale para 2 ou 3 classes: prevê a classe de interesse quando a
-probabilidade dela alcança o limiar e, caso contrário, decide entre as classes
-restantes pelo maior valor. Com o limiar igual ao ponto de indiferença, o resultado
-é equivalente ao `predict` padrão; abaixo dele, troca-se precisão por revocação.
-"""
-
 import numpy as np
 import pandas as pd
 from sklearn.metrics import (
